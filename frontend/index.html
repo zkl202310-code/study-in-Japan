@@ -91,7 +91,7 @@
 
   <footer>
     数据由项目人工整理自各校官方募集要項，难免疏漏 ——
-    <a href="#" id="report">发现错误 / 补充学校，点这里反馈</a><br />
+    <a href="https://wj.qq.com/s2/26941630/d998/" target="_blank" rel="noopener" id="report">发现错误 / 补充学校，点这里反馈</a><br />
     © 2026 日本教育学大学院 DDL 速查 · 仅供参考，不构成申请建议
   </footer>
 </div>
@@ -188,10 +188,6 @@ function render(){
 }
 
 [fLang,fTerm,fContact,fStatus].forEach(s=>s.addEventListener('change',render));
-document.getElementById('report').addEventListener('click',e=>{
-  e.preventDefault();
-  window.open('https://wj.qq.com/s2/26941630/d998/','_blank');
-});
 
 // 读取数据：部署到 Vercel/Netlify 直接生效；本地预览需起静态服务器
 // 本地预览：在项目根目录跑  python3 -m http.server 8000  然后访问 http://localhost:8000/frontend/
