@@ -190,7 +190,7 @@ function render(){
 [fLang,fTerm,fContact,fStatus].forEach(s=>s.addEventListener('change',render));
 document.getElementById('report').addEventListener('click',e=>{
   e.preventDefault();
-  alert('反馈入口占位：上线时替换为你的微信/问卷/GitHub Issue 链接（见 docs/03 WF-6 众包）');
+  window.open('https://wj.qq.com/s2/26941630/d998/','_blank');
 });
 
 // 读取数据：部署到 Vercel/Netlify 直接生效；本地预览需起静态服务器
