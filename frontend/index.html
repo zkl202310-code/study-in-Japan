@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>日本教育学大学院 · 出愿 DDL 速查（2027 入学）</title>
+<style>
+  :root{
+    --bg:#f7f7f8; --card:#fff; --ink:#1d1d1f; --sub:#6b6b70; --line:#e6e6ea;
+    --brand:#c0392b; --ok:#27913a; --warn:#c77700; --gray:#8a8a90;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans",
+    "Microsoft YaHei",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:18px 14px 64px}
+  header h1{font-size:20px;margin:0 0 6px}
+  header p{margin:0;color:var(--sub);font-size:13px}
+  .disc{margin:12px 0 0;padding:9px 11px;background:#fff7ed;border:1px solid #f3d9b5;
+    border-radius:9px;color:#8a5a00;font-size:12px}
+  .filters{position:sticky;top:0;z-index:5;background:var(--bg);
+    padding:12px 0 8px;margin:10px 0 4px;border-bottom:1px solid var(--line)}
+  .filters .row{display:flex;gap:8px;flex-wrap:wrap}
+  select{appearance:none;border:1px solid var(--line);background:var(--card);
+    border-radius:9px;padding:8px 10px;font-size:13px;color:var(--ink);flex:1;min-width:46%}
+  .count{font-size:12px;color:var(--sub);margin:8px 2px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px 15px;margin:11px 0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .card h2{font-size:16px;margin:0 0 2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .b-pending{background:#f1f1f4;color:var(--gray)}
+  .b-todo{background:#fff1f0;color:var(--brand)}
+  .b-open{background:#e9f7ee;color:var(--ok)}
+  .b-closed{background:#f1f1f4;color:var(--gray);text-decoration:line-through}
+  .meta{color:var(--sub);font-size:12px;margin:2px 0 10px}
+  .grid{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13.5px}
+  .grid .k{color:var(--sub)}
+  .grid .v{color:var(--ink)}
+  .v.muted{color:var(--gray);font-style:italic}
+  .star{color:var(--brand)}
+  .foot{margin-top:11px;padding-top:9px;border-top:1px dashed var(--line);
+    font-size:12px;color:var(--sub);display:flex;justify-content:space-between;
+    align-items:center;gap:10px;flex-wrap:wrap}
+  .foot a{color:var(--brand);text-decoration:none}
+  .note{margin-top:8px;font-size:12px;color:var(--warn);background:#fff8ee;
+    border-radius:8px;padding:6px 9px}
+  .empty{text-align:center;color:var(--sub);padding:40px 0;font-size:14px}
+  footer{margin-top:30px;text-align:center;color:var(--gray);font-size:12px;line-height:1.7}
+  footer a{color:var(--brand);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>日本教育学大学院 · 出愿 DDL 速查</h1>
+    <p>2027 年 4 月入学 · 修士 · 留学生入試 · 持续更新中</p>
+    <div class="disc">⚠️ 信息工具，仅供参考；一切以各校<strong>官方募集要項</strong>为准。本站不代办、不保录取。</div>
+  </header>
+
+  <div class="filters">
+    <div class="row">
+      <select id="f-lang">
+        <option value="">语言要件：全部</option>
+        <option value="N1">含 N1 要求</option>
+        <option value="N2">含 N2 要求</option>
+        <option value="待核对">待核对</option>
+      </select>
+      <select id="f-term">
+        <option value="">入学期：全部</option>
+        <option value="2027-04">2027 年 4 月</option>
+        <option value="2027-10">2027 年 10 月</option>
+      </select>
+      <select id="f-contact">
+        <option value="">事前连络：全部</option>
+        <option value="need">需要</option>
+        <option value="no">不需要</option>
+        <option value="待核对">待核对</option>
+      </select>
+      <select id="f-status">
+        <option value="">状态：全部</option>
+        <option value="已发布">已发布</option>
+        <option value="待发布">待发布</option>
+        <option value="已截止">已截止</option>
+        <option value="待核对">待核对</option>
+      </select>
+    </div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div id="list"></div>
+
+  <footer>
+    数据由项目人工整理自各校官方募集要項，难免疏漏 ——
+    <a href="#" id="report">发现错误 / 补充学校，点这里反馈</a><br />
+    © 2026 日本教育学大学院 DDL 速查 · 仅供参考，不构成申请建议
+  </footer>
+</div>
+
+<script>
+const elList = document.getElementById('list');
+const elCount = document.getElementById('count');
+const fLang = document.getElementById('f-lang');
+const fTerm = document.getElementById('f-term');
+const fContact = document.getElementById('f-contact');
+const fStatus = document.getElementById('f-status');
+let DATA = [];
+
+// 截止日早于今天则视为已截止（防过期日期误导，对应 docs/02 状态机）
+function effectiveStatus(r){
+  if(r.application_deadline && /^\d{4}-\d{2}-\d{2}$/.test(r.application_deadline)){
+    const today = new Date(); today.setHours(0,0,0,0);
+    if(new Date(r.application_deadline) < today) return '已截止';
+  }
+  return r.status || '待核对';
+}
+function badgeClass(s){
+  return s==='已发布'?'b-open':s==='已截止'?'b-closed':s==='待发布'?'b-pending':'b-todo';
+}
+function langText(lr){
+  if(!lr) return null;
+  if(typeof lr==='string') return lr;
+  const t=[]; if(lr.jlpt) t.push('JLPT '+lr.jlpt);
+  if(lr.toefl) t.push('TOEFL '+lr.toefl);
+  if(lr.eju===true) t.push('需 EJU');
+  return t.length?t.join(' · '):null;
+}
+function val(x, fallback='待核对/未公布'){
+  return (x===null||x===undefined||x==='')
+    ? '<span class="v muted">'+fallback+'</span>' : '<span class="v">'+x+'</span>';
+}
+function contactText(r){
+  if(r.prior_contact===true) return '需要';
+  if(r.prior_contact===false) return '不需要';
+  return null;
+}
+
+function render(){
+  const list = DATA.filter(r=>{
+    const st = effectiveStatus(r);
+    if(fStatus.value && st!==fStatus.value) return false;
+    if(fTerm.value && r.intake_term!==fTerm.value) return false;
+    if(fLang.value){
+      const lr=r.lang_req;
+      if(fLang.value==='待核对'){ if(lr) return false; }
+      else {
+        const hit = typeof lr==='string' ? lr.includes(fLang.value) : (lr && lr.jlpt===fLang.value);
+        if(!hit) return false;
+      }
+    }
+    if(fContact.value){
+      if(fContact.value==='need' && r.prior_contact!==true) return false;
+      if(fContact.value==='no' && r.prior_contact!==false) return false;
+      if(fContact.value==='待核对' && (r.prior_contact===true||r.prior_contact===false)) return false;
+    }
+    return true;
+  });
+
+  elCount.textContent = `共 ${DATA.length} 所 · 当前筛选 ${list.length} 所`;
+  if(!list.length){ elList.innerHTML='<div class="empty">没有符合条件的学校 🙇 试试放宽筛选</div>'; return; }
+
+  elList.innerHTML = list.map(r=>{
+    const st = effectiveStatus(r);
+    const lang = langText(r.lang_req);
+    const contact = contactText(r);
+    const hasPdf = r.official_pdf_url && !/待填|待核对/.test(r.official_pdf_url);
+    const srcUrl = hasPdf ? r.official_pdf_url
+                 : (r.source_page_url && !/待填|待核对/.test(r.source_page_url)) ? r.source_page_url : null;
+    const pdf = srcUrl
+      ? `<a href="${srcUrl}" target="_blank" rel="noopener">${hasPdf?'官方募集要項 ↗':'官方招生页 ↗'}</a>`
+      : '<span class="v muted">官方链接待补</span>';
+    return `<div class="card">
+      <h2>${r.school} <span class="badge ${badgeClass(st)}">${st}</span></h2>
+      <div class="meta">${r.school_type||''} · ${r.graduate_school||'研究科待核对'} · ${r.degree||''} · ${r.intake_term||''} · ${r.admission_track||''} ${r.period_label?'· '+r.period_label:''}</div>
+      <div class="grid">
+        <div class="k star">★ 出愿截止</div><div>${val(r.application_deadline)}</div>
+        <div class="k star">★ 语言要件</div><div>${val(lang)}</div>
+        <div class="k star">★ 事前连络</div><div>${val(contact)}</div>
+        <div class="k">研究计划书</div><div>${val(r.research_plan===true?'需要':r.research_plan===false?'不需要':null)}</div>
+        <div class="k">推荐信</div><div>${val(r.rec_letters===0?'不需要':r.rec_letters!=null?r.rec_letters+' 通':null)}</div>
+      </div>
+      ${r.notes?`<div class="note">📝 ${r.notes}</div>`:''}
+      <div class="foot">
+        <span>${pdf}</span>
+        <span>最后核对：${r.last_verified||'—'}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+[fLang,fTerm,fContact,fStatus].forEach(s=>s.addEventListener('change',render));
+document.getElementById('report').addEventListener('click',e=>{
+  e.preventDefault();
+  alert('反馈入口占位：上线时替换为你的微信/问卷/GitHub Issue 链接（见 docs/03 WF-6 众包）');
+});
+
+// 读取数据：部署到 Vercel/Netlify 直接生效；本地预览需起静态服务器
+// 本地预览：在项目根目录跑  python3 -m http.server 8000  然后访问 http://localhost:8000/frontend/
+fetch('../data/universities.seed.json')
+  .then(r=>r.json())
+  .then(j=>{ DATA=(j.universities||[]).filter(x=>x && x.school); render(); })
+  .catch(()=>{ elList.innerHTML='<div class="empty">数据加载失败：请用静态服务器预览（见文件内注释）</div>'; });
+</script>
+</body>
+</html>

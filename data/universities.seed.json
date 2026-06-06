@@ -1,0 +1,908 @@
+{
+  "_README": "第 0 阶段种子。2026-06-05 已完成【结构性核准】：研究科官方名 + 官方招生页URL 已回填并带来源；一橋已替换为神戸（一橋无独立教育学研究科）。【但】所有 application_*/exam_date/result_date/lang_req/rec_letters/research_plan/prior_contact 仍为 null，必须由张凯磊逐校打开官方募集要項 PDF 终审填入，并写 last_verified。notes 里『官方页显示…待PDF终审』的日期是线索，未经PDF核对前【不可】写进数据字段。共10所(旧帝大七校+筑波/神戸/広島)。值=AI从官方PDF抓取+独立对抗核验，附_evidence日文原文，last_verified=null 待张凯磊终审。规则见 docs/01、docs/02。",
+  "_field_dict": "见 docs/01-数据规则与Schema.md 字段字典",
+  "_EXAMPLE_仅示范格式_勿当真实数据": {
+    "school": "（示例）○○大学",
+    "school_type": "国立",
+    "graduate_school": "教育学研究科",
+    "major": null,
+    "field_tag": "教育系",
+    "degree": "修士",
+    "intake_term": "2027-04",
+    "admission_track": "外国人留学生特別入試",
+    "period_label": "一期",
+    "application_open": "（示例-假值）2026-08-25",
+    "application_deadline": "（示例-假值）2026-09-01",
+    "exam_date": null,
+    "result_date": null,
+    "lang_req": {
+      "jlpt": "N1",
+      "toefl": null,
+      "eju": false
+    },
+    "rec_letters": 2,
+    "research_plan": true,
+    "prior_contact": true,
+    "official_pdf_url": "（待填官方PDF直链）",
+    "source_page_url": "（待填官方招生页URL）",
+    "year_version": "2027年度",
+    "status": "待核对",
+    "last_verified": null,
+    "notes": "格式示范，数值是假的，开工时删除整条"
+  },
+  "universities": [
+    {
+      "school": "東京大学",
+      "school_type": "国立",
+      "graduate_school": "教育学研究科",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "一般入試（外国人留学生に独立特別入試なし·要日语证明）",
+      "period_label": "一期",
+      "application_open": "2026-06-18",
+      "application_deadline": "2026-06-26",
+      "exam_date": "2026-09-11",
+      "result_date": "2026-09-18",
+      "lang_req": "JLPT認定結果証明書（財団法人日本国際教育支援協会発行）または日本語担当教員による日本語能力証明書を提出。ただし日本の大学学部卒業者・本研究科大学院外国人研究生在籍者は提出不要。",
+      "rec_letters": null,
+      "research_plan": true,
+      "prior_contact": null,
+      "official_pdf_url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+      "source_page_url": "https://www.p.u-tokyo.ac.jp/admissions/graduate/",
+      "year_version": "令和9年度/2027年度",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-06-18",
+          "quote": "令和8（2026）年6月18日（木）10時から6月26日（金）15時まで",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-06-26",
+          "quote": "令和8（2026）年6月18日（木）10時から6月26日（金）15時まで",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2026-09-11",
+          "quote": "第一次試験（筆記試験）は、令和8（2026）年9月11日（金）に行う。第二次試験（口述試験）は、令和8（2026）年9月17日（木）に行う。",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-09-18",
+          "quote": "第二次試験合格者は、令和8（2026）年9月18日（金）16時ごろ本研究科ウェブサイトで合格者の受験番号を掲載して発表する。",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "JLPT認定結果証明書（財団法人日本国際教育支援協会発行）または日本語担当教員による日本語能力証明書を提出。ただし日本の大学学部卒業者・本研究科大学院外国人研究生在籍者は提出不要。",
+          "quote": "外国人出願者は以下の①か②のどちらかをオンライン入力画面にアップロードして提出すること。ただし、日本の大学（学部のみ。大学院は含まない。）を卒業した者及び卒業見込みの者は提出不要。また、本研究科に大学院外国人研究生として在籍している者は提出不要。①日本語能力試験「認定結果及び成績に関する証明書」（財団法人日本国際教育支援協会が発行した提出用の証明書に限る）の原本の写し（PDF）。②日本語担当教員若しくはこれに準ずる者による日本語の学力を表す証明書の原本の写し（PDF）。",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": null,
+          "quote": "",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "medium",
+          "verify": false
+        },
+        "research_plan": {
+          "raw": "要",
+          "quote": "研究計画書　指定の様式により、日本語で作成してPDFファイルに変換し、オンライン入力画面の指示に従ってアップロードすること。",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": null,
+          "quote": "",
+          "url": "https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/R92027edu_examM_youkou-3.pdf",
+          "confidence": "high",
+          "verify": true
+        }
+      },
+      "notes": "【入試区分について】東京大学教育学研究科修士課程には「外国人留学生特別入試」という独立したトラックは存在しない。外国人留学生も一般入試（一般選抜）で出願する。ただし外国人出願者には追加書類として「日本語の学力を表す証明書」（JLPTまたは日本語教員証明書）の提出が求められる。国費留学生（文部科学省奨学金）は検定料免除。第一次試験（筆記）合格者のみ第二次試験（口述）を受験。第二次試験はオンライン方式で実施。推薦状の提出は求められていない（提出書類一覧に項目なし）。事前連絡（指導教員へのコンタクト）については募集要項に明記なし。ただし教育学研究科説明会が5月に実施されており、事前相談は推奨されているものと考えられる。",
+      "_unresolved": [
+        "事前連絡(prior_contact)の要否：募集要項PDF本文に明示記載なし。FAQ PDF(https://www.p.u-tokyo.ac.jp/wp-content/uploads/2026/04/f3fa4077c08208898da624e0586009d9.pdf)が文字化けで読めず。このPDF内「事前連絡」または「指導教員」に関する記述箇所を人工確認推奨。"
+      ]
+    },
+    {
+      "school": "京都大学",
+      "school_type": "国立",
+      "graduate_school": "教育学研究科",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "外国人留学生特別選抜（修士）",
+      "period_label": "一期",
+      "application_open": "2026-11-05",
+      "application_deadline": "2026-11-11",
+      "exam_date": "2027-02-01",
+      "result_date": "2027-02-12",
+      "lang_req": "明示的な語学スコア要件なし。語学力証明書類（TOEFL・TOEIC・英検・日本語能力試験等）はエビデンス資料として任意提出可。",
+      "rec_letters": 0,
+      "research_plan": true,
+      "prior_contact": false,
+      "official_pdf_url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+      "source_page_url": "https://www.educ.kyoto-u.ac.jp/graduate/admissions_info/",
+      "year_version": "令和9年度／2027年度",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-11-05",
+          "quote": "Ⅶ．出願書類受理期間 （論文及びその要約を除く）　2026 年11 月5 日（木）～11 月11 日（水）",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-11-11",
+          "quote": "Ⅶ．出願書類受理期間 （論文及びその要約を除く）　2026 年11 月5 日（木）～11 月11 日（水）　最終日の午後5時までに必着のこと。",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2027-02-01",
+          "quote": "第2次試験（筆記試験及び口頭試験）は、2027 年2 月1 日（月）～2 月3 日（水）に実施する。※いずれか1日（選択不可）",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2027-02-12",
+          "quote": "Ⅸ．合格者発表　2027 年2 月12 日（金）午後1 時　本研究科Web サイト（https://www.educ.kyoto-u.ac.jp/）に合格者の受験番号を掲載し、同時に合格者には郵便により通知する。",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "明示的な語学スコア要件なし。語学力証明書類（TOEFL・TOEIC・英検・日本語能力試験等）はエビデンス資料として任意提出可。",
+          "quote": "⑤エビデンス資料　上記③、④に関連する各種資料があれば提出すること。（論文、報告書、発表資料等。日本語、英語等の語学力を示す書類を含めてもよい。コピーでもよい。）",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": "不要（募集要項に事前連絡の規定なし）",
+          "quote": "（募集要項全文中に指導教員への事前連絡を義務付ける記載なし。外国大学卒業者はAAOでの手続きが必要。）",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "medium",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": "要（研究計画書 同一内容のもの4部、別紙Ⅱ「研究計画書作成要領」に従って提出必須）",
+          "quote": "④研究計画書　同一内容のもの4 部。別紙Ⅱ「研究計画書作成要領」に従うこと。",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": "不要（提出書類リストに推薦状・推薦書の規定なし）",
+          "quote": "（Ⅵ．出願手続 ①～⑮の提出書類リストに推薦状・推薦書の記載なし）",
+          "url": "https://www.educ.kyoto-u.ac.jp/wp/wp-content/uploads/2026/06/d1907cc54896451be31109381f266f2c.pdf",
+          "confidence": "high",
+          "verify": true
+        }
+      },
+      "notes": "1. 本募集要項は2026年6月1日に公開された令和9年度（2027年度入学）修士課程・外国人留学生特別選抜の正式な募集要項。2. 第1次試験（書類審査）合格発表は2026年12月18日（金）午後1時（中間発表）。第1次合格者のみ論文・要約を2027年1月4日～7日に追加提出。3. 研究計画書に加え「研究経過報告書」（③）も4部提出必須。4. 出願資格審査（資格(9)(10)該当者）は2026年10月6日～7日に別途申請が必要。5. 外国の大学卒業者は出願前にAAO（京都大学アドミッション支援オフィス）での手続きが必要。6. 入学検定料支払期間：2026年10月30日（金）～11月11日（水）。",
+      "_unresolved": []
+    },
+    {
+      "school": "大阪大学",
+      "school_type": "国立",
+      "graduate_school": "人間科学研究科（教育学系）",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "博士前期 一般入試（外国籍可·无独立留学生选抜）",
+      "period_label": "一期",
+      "application_open": "2026-07-21（秋期）／2026-11-16（冬期）",
+      "application_deadline": "2026-07-23（秋期）／2026-11-18（冬期）",
+      "exam_date": "2026-09-16・2026-09-18（秋期筆記・口述）／2027-01-27・2027-01-29（冬期筆記・口述）",
+      "result_date": "2026-09-25（秋期）／2027-02-02（冬期）",
+      "lang_req": "英語能力証明書（TOEFL-iBT / IELTS Academic / TOEIC L&R / TOEFL-ITP）必須提出・スコア換算あり。JLPTの要件記載なし。",
+      "rec_letters": 0,
+      "research_plan": true,
+      "prior_contact": true,
+      "official_pdf_url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+      "source_page_url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/admission.html",
+      "year_version": "令和9年度／2027年度",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-07-21（秋期）／2026-11-16（冬期）",
+          "quote": "秋期 ２０２６（令和８）年 ７月２１日 (火) ～２０２６（令和８）年 ７月２３日（木）　冬期 ２０２６（令和８）年１１月１６日 (月) ～２０２６（令和８）年１１月１８日（水）",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-07-23（秋期）／2026-11-18（冬期）",
+          "quote": "秋期 ２０２６（令和８）年 ７月２１日 (火) ～２０２６（令和８）年 ７月２３日（木）　冬期 ２０２６（令和８）年１１月１６日 (月) ～２０２６（令和８）年１１月１８日（水）　国内：発信局消印有効 / 国外：期限内必着",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2026-09-16・2026-09-18（秋期筆記・口述）／2027-01-27・2027-01-29（冬期筆記・口述）",
+          "quote": "秋期 ２０２６（令和８）年９月１６日（水）10：00～11：10 / 12：30～14：10（筆記）　秋期 ２０２６（令和８）年９月１８日（金）10：00～（口述）　冬期 ２０２７（令和９）年１月２７日（水）（筆記）　冬期 ２０２７（令和９）年１月２９日（金）10：00～（口述）",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-09-25（秋期）／2027-02-02（冬期）",
+          "quote": "秋期 ２０２６（令和８）年９月２５日（金）13：30～　冬期 ２０２７（令和９）年２月２日（火）13：30～",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "英語能力証明書（TOEFL-iBT / IELTS Academic / TOEIC L&R / TOEFL-ITP）必須提出・スコア換算あり。JLPTの要件記載なし。",
+          "quote": "提出可能な証明書は、TOEFL-iBT、IELTS（Academic Module）、TOEIC（Listening＆Reading）、TOEFL-ITP（本学が実施する試験に限る。）のいずれかのスコアとします。　スコア換算の目安：TOEFL-iBT 103=換算後86、IELTS 7.0=86、TOEIC 910=86",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": "必須（教育学系は特に必須。外国籍はアドミッション支援デスク経由が原則）",
+          "quote": "志願者が希望する研究内容が、志望研究分野の研究内容と一致するかなどを確認するため、志望する研究分野の担当教員（指導予定教員）に事前連絡を取ってください。なお、行動学系、教育学系、共生学系については、事前連絡が必須ですので、ご注意ください。　外国籍の志願者（本学在籍者又は本学卒業者を除く）については、指導予定教員へのアポイントは、原則として、大阪大学【アドミッション支援デスク】を通して行ってください。　確認を行う場合の志望する研究分野の担当教員（指導予定教員）への事前の連絡は、原則として、願書等受理期間初日の２週間前までに完了させてください。",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": "必須（A4・4〜5枚程度、日本語4000字程度または英語同等、提出票添付）",
+          "quote": "⑦研究計画書　※今後の大学院での研究計画について、日本語または英語で、Ａ４用紙に４～５枚程度（日本語で4,000 文字程度）（英語については同等程度）パソコン等で作成してください。※研究計画書には、提出票（本学所定用紙）を添付のうえ、提出してください。",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": "不要（一般入試通常出願では推薦状の提出書類記載なし）",
+          "quote": "出願書類（①入学願書②受験票・写真票③検定料収納証明書④大学の卒業（見込）証明書⑤学士の学位証明書⑥大学の成績証明書⑦研究計画書⑧本人の宛先記入の封筒３枚⑨英語能力証明書⑩在留カードまたはパスポートの写し⑪国費外国人留学生証明書⑫その他）",
+          "url": "https://www.hus.osaka-u.ac.jp/ja/applicants_for_graduate/files/2027_i_guideline.pdf",
+          "confidence": "high",
+          "verify": true
+        }
+      },
+      "notes": "1. 本研究科に留学生特別選抜は設定されておらず、外国籍は一般入試で受験する。2. 入試は「秋期（2026年7月出願、9月試験）」と「冬期（2026年11月出願、2027年1月試験）」の2回実施。3. 教育学系は事前連絡が必須。外国籍志願者はアドミッション支援デスク（https://www.hus.osaka-u.ac.jp/ja/content/dragongate.html）を通じた事前連絡が原則。4. 推薦状（他者推薦書2通）は出願資格審査（出願資格(9)号＝22歳以上・大卒相当と認定が必要な特例）のみに要求される書類であり、通常の一般入試出願には不要。5. 語学要件はJLPTではなく英語のみ（TOEFL-iBT/IELTS/TOEIC L&R）。PDFにスコア換算表あり（TOEFL-iBT 103→換算86点、IELTS 7.0→換算86点、TOEIC 910→換算86点）。6. 特待留学生授業料免除制度あり（私費外国人留学生対象、本入試対象）。",
+      "_unresolved": [
+        "英語能力証明書の詳細提出要項（TOEFL公式スコア送付先機関コード等）：2027_i_englishcert.pdfを開き全文確認（PDF読取不可）"
+      ]
+    },
+    {
+      "school": "東北大学",
+      "school_type": "国立",
+      "graduate_school": "教育学研究科",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "外国人留学生特別選抜",
+      "period_label": "一期",
+      "application_open": "2026-07-30",
+      "application_deadline": "2026-08-06",
+      "exam_date": "2026-09-16",
+      "result_date": "2026-10-21",
+      "lang_req": null,
+      "rec_letters": null,
+      "research_plan": null,
+      "prior_contact": null,
+      "official_pdf_url": null,
+      "source_page_url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+      "year_version": "令和9年度/2027年度（入試日程のみ公開、募集要項PDF未公表）",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-07-30",
+          "quote": "前期２年の課程　一般選抜・社会人特別選抜・外国人特別選抜　第１期（９月実施）　願書受付　2026年 7月30日（木）～8月 6日（木）",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-08-06",
+          "quote": "前期２年の課程　一般選抜・社会人特別選抜・外国人特別選抜　第１期（９月実施）　願書受付　2026年 7月30日（木）～8月 6日（木）",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2026-09-16",
+          "quote": "第１期（９月実施）　選考日　2026年 9月16日（水）～9月17日（木）",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-10-21",
+          "quote": "第１期（９月実施）　合格発表　2026年10月21日（水）",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": null,
+          "quote": "令和9年度（2027年度）の募集要項につきましては、6月中旬以降に公表予定です。",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "none",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": null,
+          "quote": "令和9年度（2027年度）の募集要項につきましては、6月中旬以降に公表予定です。",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "none",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": null,
+          "quote": "令和9年度（2027年度）の募集要項につきましては、6月中旬以降に公表予定です。",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "none",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": null,
+          "quote": "令和9年度（2027年度）の募集要項につきましては、6月中旬以降に公表予定です。",
+          "url": "https://www.sed.tohoku.ac.jp/admissions/guideline.html",
+          "confidence": "none",
+          "verify": true
+        }
+      },
+      "notes": "【注:日程已公布并核验，但語学要件/事前連絡等详细要項6月中旬以降才公表，待补】 令和9年度（2027年度）の入試日程（出願期間・選考日・合格発表）はすでに官方ページに掲载されており原文証拠あり。ただし詳細募集要項PDF（語学要件・推薦状・研究計画書・事前連絡要否等）は「6月中旬以降に公表予定」のため未公表。外国人留学生特別選抜は一般選抜・社会人特別選抜と日程を共有し、独立した日程行はない。第2期（1月実施）も存在：出願2026/12/21〜2027/1/5、選考2027/1/28〜29、合格発表2027/2/17。令和8年度PDFは2件とも二进制乱码で内容読取不可。",
+      "_unresolved": [
+        "令和9年度募集要項PDF（6月中旬以降公表予定）：語学要件(JLPT/TOEFL/EJU)、推薦状枚数、研究計画書要否、事前連絡要否 → 公表後に https://www.sed.tohoku.ac.jp/admissions/guideline.html からPDFリンクを確認し、「外国人留学生特別選抜　出願資格」節および「提出書類」節を精読すること",
+        "令和8年度PDFリファレンス用（構造確認のみ）: https://www.sed.tohoku.ac.jp/media/files/graduate/guideline/20250922_master_2025.pdf （読取不可・二进制乱码）"
+      ]
+    },
+    {
+      "school": "名古屋大学",
+      "school_type": "国立",
+      "graduate_school": "教育発達科学研究科（教育科学専攻）",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "一般入試 第1期（教育科学専攻）",
+      "period_label": "一期",
+      "application_open": "2026-07-13",
+      "application_deadline": "2026-07-31",
+      "exam_date": "2026-09-08",
+      "result_date": "2026-09-16",
+      "lang_req": "外部試験スコア提出不要。入試当日に筆記試験（外国語）として実施：受験者が選択した自国語以外の言語（英語または日本語）で一般教養的語学力を測る。冊子体辞書1冊持込可。",
+      "rec_letters": null,
+      "research_plan": true,
+      "prior_contact": null,
+      "official_pdf_url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+      "source_page_url": "https://www2.educa.nagoya-u.ac.jp/admission/gs-exam/gs-exam-01",
+      "year_version": "令和9年度/2027年度",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-07-13",
+          "quote": "インターネット出願受付期間 2026年7月13日（月）～ 7月29日（水）15時",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-07-31",
+          "quote": "郵送受付期間 2026年7月27日（月）～7月31日（金）16時",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2026-09-08",
+          "quote": "期日 2026年9月8日(火) 10:00～10:40 筆記試験(外国語)　13:00～ 口述試験 2026年9月9日(水) 9:00～ 2026年9月10日(木) 9:00～",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-09-16",
+          "quote": "2026年9月16日（水）17：00頃，本研究科玄関に掲示するとともに，後日，インターネット出願時に登録した住所宛てに，合格者のみに通知する。",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "外部試験スコア提出不要。入試当日に筆記試験（外国語）として実施：受験者が選択した自国語以外の言語（英語または日本語）で一般教養的語学力を測る。冊子体辞書1冊持込可。",
+          "quote": "筆記試験(外国語) 英語又は日本語のいずれか受験者が選択した自国語以外の言語について，一般教養的語学力を筆記により試験する。試験においては冊子体の語学辞書１冊の持ち込みを認める。なお，文献の大意を理解することができる程度の語学力を筆記により試験する。",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": null,
+          "quote": "",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": "要（様式3、約2,000字、4部提出）",
+          "quote": "（６） 研究計画 ［様式３］ 所定の様式をA4サイズ用紙に片面印刷し，提出すること。（ア）教育科学専攻 約2,000字で記述し，４部提出すること。複写可。",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": null,
+          "quote": "",
+          "url": "https://www2.educa.nagoya-u.ac.jp/wp-content/uploads/2026/05/2027_m1a.pdf",
+          "confidence": "high",
+          "verify": true
+        }
+      },
+      "notes": "【留学生選抜について】「海外学位取得者特別選抜」は心理発達科学専攻（心理社会行動科学講座・スポーツ行動科学講座のみ）限定で実施。教育科学専攻に独立した留学生選抜はなく、外国人留学生も日本人と同じ一般入試第1期に出願する（出願資格(3)「外国において学校教育における16年の課程を修了した者」として適用）。\n\n【事前連絡】募集要項PDF全16ページに「事前連絡」「指導教員との連絡」「事前接触」に関する記載なし。要件なし（またはWebページ等に別途記載の可能性があるが確認できず）。\n\n【推薦状】募集要項PDF全16ページに「推薦状」「推薦書」の記載なし。提出不要。\n\n【オンライン出願締切 vs 郵送締切】application_deadlineはオンライン出願締切2026-07-29(15時)と郵送受付締切2026-07-31(16時)の二段構え。実質的な最終締切は郵送7月31日。\n\n【研究計画書（様式2）との区別】出願書類には「これまでの研究テーマまたは卒業論文の題目とその概要（様式2）」（約4,000字）も別途必要。「研究計画（様式3）」は入学後の研究計画書に相当し、これが本来のresearch_plan。\n\n【試験日程】筆記試験(外国語)は9月8日のみ、口述試験は9月8日午後～9月10日の間で個別時程。",
+      "_unresolved": []
+    },
+    {
+      "school": "九州大学",
+      "school_type": "国立",
+      "graduate_school": "人間環境学府（教育システム専攻）",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "一般選抜（夏季）※留学生特別選抜は冬季·未公開",
+      "period_label": "一期",
+      "application_open": "2026-07-14",
+      "application_deadline": "2026-07-21",
+      "exam_date": "2026-08-18",
+      "result_date": "2026-09-09",
+      "lang_req": "TOEIC(L&R)・TOEFL-iBT・IELTS(Academic Module)のいずれか（出願書類として提出、英語筆記試験の代替としてスコアで成績評価）",
+      "rec_letters": 0,
+      "research_plan": true,
+      "prior_contact": true,
+      "official_pdf_url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+      "source_page_url": "https://www.hues.kyushu-u.ac.jp/candidate/application/",
+      "year_version": "令和9年度/2027年度（夏季募集）",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-07-14",
+          "quote": "令和8年7月14日（火）から令和8年7月21日（火）午後5時まで",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-07-21",
+          "quote": "令和8年7月14日（火）から令和8年7月21日（火）午後5時まで（土、日曜日は受け付けない。なお、郵送の場合も令和8年7月21日（火）午後5時までに必着すること。）",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2026-08-18",
+          "quote": "令和8年8月18日（火）[筆記試験]…令和8年8月19日（水）[口述試験] 現代教育実践システムコース 教育システム専攻 9:30～ / 総合人間形成システムコース 9:30～",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-09-09",
+          "quote": "令和8年9月9日(水)午前10時に人文社会科学系合同掲示板(イースト1号館前)に合格者の受験番号を掲示するとともに、合格者については本人宛発送する。",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "TOEIC(L&R)・TOEFL-iBT・IELTS(Academic Module)のいずれか（出願書類として提出、英語筆記試験の代替としてスコアで成績評価）",
+          "quote": "TOEIC（Listening & Reading Test、L&R）、TOEFLまたはIELTS（Academic Module）のいずれかの成績証明書 ※3 ・ 出願締切日から遡って2年以内（令和6（2024）年7月22日以降）に受験したもの。 ・ TOEIC(L&R)-IP及びTOEFL-ITP等の団体特別受験制度による成績証明書も利用できる。 / ※1 都市共生デザイン専攻、人間共生システム専攻、行動システム専攻心理学コース、教育システム専攻及び空間システム専攻については、英語はTOEIC、TOEFLまたはIELTSの得点で成績評価を行う。（IELTSは都市共生デザイン専攻、教育システム専攻、空間システム専攻のみ）",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": "要（出願前に指導希望教員への事前連絡・相談が必須）",
+          "quote": "あらかじめ次のウェブページを確認の上、指導を希望する教員と相談し、出願すること。（指導希望教員への事前連絡方法） https://www.hues.kyushu-u.ac.jp/candidate/examination/#section06",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": "要（研究計画書 3,000字以内、本学府所定様式使用）",
+          "quote": "研究計画書（本学府所定の様式を使用し、3,000字以内とする。）本学府修士課程に入学後の研究計画について提出すること。",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": "不要（一般選抜・外国人留学生特別選抜の出願書類に推薦状の記載なし。社会人特別選抜には「紹介状」が必要だが一般選抜には不要）",
+          "quote": "（一般選抜の出願書類一覧に推薦状・推薦書の記載なし。社会人特別選抜のみ「紹介状（社会人特別選抜）」様式あり。）",
+          "url": "https://www.hues.kyushu-u.ac.jp/wp-content/uploads/2026/04/★R9年4月入学_修士課程_学生募集要項（R8年夏季実施）.pdf",
+          "confidence": "high",
+          "verify": true
+        }
+      },
+      "notes": "【入試区分の重要な注意点】教育システム専攻において、外国人留学生特別選抜は夏季には実施されない。夏季の外国人留学生特別選抜は「行動システム専攻 健康・スポーツ科学コース」のみ対象。教育システム専攻（現代教育実践システムコース・総合人間形成システムコース）の外国人留学生特別選抜および社会人特別選抜は冬季募集で実施される（PDF p.8：「※ 人間共生システム専攻臨床心理学指導・研究コース及び教育システム専攻は、冬季に募集を行う。」）。冬季募集要項は例年10月下旬公開予定のため、2026年6月時点では未公開。本データは令和9年度4月入学【修士課程 一般選抜 夏季募集】の教育システム専攻に対するもの。教育学国際コースは「別途募集」と記載あり。語学要件について：教育システム専攻一般選抜では英語筆記試験の代わりにTOEIC(L&R)/TOEFL-iBT/IELTS(Academic)のスコアが成績評価に用いられる（出願書類として提出、公式スコアのみ有効、試験日から2年以内）。JLPT・EJUは要件として記載なし。",
+      "_unresolved": [
+        "教育システム専攻 外国人留学生特別選抜の冬季募集要項（2027年4月入学）：例年10月下旬に https://www.hues.kyushu-u.ac.jp/candidate/application/ で公開予定。冬季要項PDFを開き、外国人留学生特別選抜の出願締切・試験日・合格発表・語学要件・研究計画書要否を確認すること。",
+        "教育学国際コース（別途募集）の詳細要項：同ページに別途PDFが公開されているか確認が必要。"
+      ]
+    },
+    {
+      "school": "北海道大学",
+      "school_type": "国立",
+      "graduate_school": "教育学院（教育学専攻）",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "外国人留学生入試（修士·独立要項）",
+      "period_label": "一期",
+      "application_open": "2026-07-01",
+      "application_deadline": "2026-07-09",
+      "exam_date": "2026-09-01",
+      "result_date": "2026-09-07",
+      "lang_req": "英語スコア必須：TOEIC L&R(公開テスト)500点以上 / TOEFL-iBT 42点以上(2026年1月20日以前受験)または新バンドスコア3以上(2026年1月21日以降受験) / TOEFL-ITP(北大実施)460点以上。JLPT要件の明示なし。試験・口述は日本語で実施。",
+      "rec_letters": null,
+      "research_plan": true,
+      "prior_contact": true,
+      "official_pdf_url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+      "source_page_url": "https://www.edu.hokudai.ac.jp/",
+      "year_version": "令和9年度（2027年度）",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": null,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-07-01",
+          "quote": "インターネット出願登録：令和８（2026）年７月１日（水）から（全員必須）",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        },
+        "application_deadline": {
+          "raw": "2026-07-09",
+          "quote": "出願書類の提出：令和８（2026）年７月３日(金)から７月９日(木)まで（受付時間は、土日祝日を除く９時～17 時まで）郵送による場合も期間内に必着のこと。",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        },
+        "exam_date": {
+          "raw": "2026-09-01",
+          "quote": "【筆記試験】令和８（2026）年９月１日(火) 9：30～11：30 ／ 【口述試験】令和８（2026）年９月２日(水) 9:00～",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        },
+        "result_date": {
+          "raw": "2026-09-07",
+          "quote": "令和８（2026）年９月７日( 月) 10:00（予定）に本学院ホームページで公表するとともに、本人宛合否を通知する。",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        },
+        "lang_req": {
+          "raw": "英語スコア必須：TOEIC L&R(公開テスト)500点以上 / TOEFL-iBT 42点以上(2026年1月20日以前受験)または新バンドスコア3以上(2026年1月21日以降受験) / TOEFL-ITP(北大実施)460点以上。JLPT要件の明示なし。試験・口述は日本語で実施。",
+          "quote": "すべての受験者は、次表に掲げた、いずれかの有効なスコアレポートを提出のこと。／TOEIC Listening & Reading（公開テスト） 500 点以上 ／ TOEFL-iBT 2026 年 1 月 20 日以前の試験：TOEFL iBT スコア 42 以上（0-120 のスコア）／2026 年 1 月 21 日以降の試験：TOEFL iBT スコア ３以上（1-6 バンドスコア）／TOEFL-ITP（団体向けTOEFLテストプログラム）460 点以上",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        },
+        "prior_contact": {
+          "raw": "要（本学教育学部以外の出身者は必須）。PSSシステムで出願前に指導希望教員に事前連絡・内諾を得ること。PSS申請期間：令和8(2026)年5月25日(月)〜6月29日(月)。",
+          "quote": "※本学教育学部以外の出身の方は、必ず、以下の「４ 出願期間」より前に、指導を希望する教員に「PSS（プレアドミッション・サポートシステム）」から事前に連絡のうえ、出願の内諾を得ること。「PSS」の詳細は以下URLを参照。なお「PSS」申請期間は、令和８（2026）年５月２５日(月)から６月２９日(月)までとなっているので留意すること。",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        },
+        "research_plan": {
+          "raw": "要。研究課題概要として、A4縦長横書き40字30行、5枚（表紙除く）以内、5部提出。日本語で作成。",
+          "quote": "研究課題概要 研究課題（研究の目的、明らかにしたいこと）、課題設定に至った経過（研究課題を設定した理由・経緯、関連する研究動向、これまでに行った研究の状況など）、研究の対象と方法（具体的に何を対象にどのような方法で研究を行い、何をいかに明らかにしようとするのか）、参考文献について記述し、次の様式に従い、日本語で作成し、【 ５部 】提出すること。様式：Ａ４判縦長横書き 40 字 30 行の用紙５枚（表紙を除く）以内(厳守) (図表を含む)。これに、研究題目及び氏名を記した表紙を付けること。パソコンを使用して作成すること。",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        },
+        "rec_letters": {
+          "raw": null,
+          "quote": "",
+          "url": "https://www.edu.hokudai.ac.jp/wp-content/uploads/2026/05/2027-master-1.pdf",
+          "confidence": "high",
+          "verify": null
+        }
+      },
+      "notes": "1. 令和9年度募集要項は令和8(2026)年5月19日に公表済み。PDFタイトルは「令和９（2027）年度 北海道大学大学院教育学院 修士課程学生募集要項」。\n2. 同一PDF内に一般入試・外国人留学生入試・社会人入試の3区分が含まれる。外国人留学生入試はp.4（PDF内ページ4〜8）に独立掲載。\n3. 推薦状（推薦書）は外国人留学生入試の出願書類リストに一切記載なし。confidence=highで「不要」と判断できる。\n4. 外国語試験について：2025年度入試より筆記試験内の外国語試験を廃止し、代わりに英語能力測定試験の公式スコア提出が必須となった（旧PDF English-Score-2.pdfに記載。ただし同PDFの必要点数はTOEFL-iBT 42点以上とやや旧情報。令和9年度本募集要項PDF p.12の表ではTOEFL-iBTスコアが2026年1月21日以降の試験はバンドスコア3以上に変更されている）。\n5. 日本語要件（JLPT等）の明示なし。ただし筆記試験・口述試験は「日本語で行う」と明記されており、実質的に高い日本語力が求められる。\n6. 事前連絡は「本学教育学部以外の出身の方は必ず」とあり、中国の大学出身者には実質必須。PSSのURL: https://futuregrad.oia.hokudai.ac.jp/admissions/pss/\n7. 筆記試験で…",
+      "_unresolved": []
+    },
+    {
+      "school": "筑波大学",
+      "school_type": "国立",
+      "graduate_school": "人間総合科学学術院 教育学学位プログラム（前期）",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "一般／英語特別選抜(限国際教育)",
+      "period_label": "一期",
+      "application_open": "2026-08-31",
+      "application_deadline": "2026-09-10",
+      "exam_date": "2026-10-13",
+      "result_date": "2026-10-30",
+      "lang_req": "一般入試：試験科目として英語（辞書使用不可）あり、外部スコア提出要件の記載なし。英語特別選抜：英語による選考（口述試験の一部が英語）、特定スコア要件の記載なし。",
+      "rec_letters": 0,
+      "research_plan": true,
+      "prior_contact": true,
+      "official_pdf_url": null,
+      "source_page_url": "https://www.education.tsukuba.ac.jp/edu-mp/adinfo_edump/",
+      "year_version": "令和9年度/2027年度（令和8年度実施）",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-08-31",
+          "quote": "令和8年(2026年)8月31日(月)12時～9月10日(木)15時",
+          "url": "https://www.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": null,
+          "quote": "令和8年(2026年)8月31日(月)12時～9月10日(木)15時",
+          "url": "https://www.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "high",
+          "verify": false
+        },
+        "exam_date": {
+          "raw": "2026-10-13",
+          "quote": "10月13日（火）",
+          "url": "https://www.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-10-30",
+          "quote": "令和8年(2026年)10月30日(金)10時",
+          "url": "https://www.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "一般入試：試験科目として英語（辞書使用不可）あり、外部スコア提出要件の記載なし。英語特別選抜：英語による選考（口述試験の一部が英語）、特定スコア要件の記載なし。",
+          "quote": "英語 辞書の使用不可 / 専門科目は、英語での解答が可能です。",
+          "url": "https://www.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "medium",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": "一般入試：不要（国際教育サブプログラムは事前内諾の例外）。英語特別選抜：必要（指導教員への事前連絡・同意取得が必須）。",
+          "quote": "【一般入試】全ての出願者は指導教員から事前に内諾を得る必要があります（「国際教育サブプログラム」と「次世代学校教育創成サブプログラムのうち現職教員1年制プログラム以外の志願者」を除く）。 / 【英語特別選抜】All the applicants must obtain prior consent from their supervisor. Before applying, you must contact a faculty member and obtain consent to become your prospective supervisor.",
+          "url": "https://eng.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "high",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": "要（一般入試・英語特別選抜ともに研究計画書提出必須）",
+          "quote": "【日本語版】下の用紙をダウンロードし、所要事項を枠内に収めて記入し、提出してください。 / 【英語版】Download the following form, fill in the required items, and submit.",
+          "url": "https://eng.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": "不要",
+          "quote": "（推薦状・推薦書に関する記載なし。一般入試・英語特別選抜ともに推薦状の提出要件なし。）",
+          "url": "https://www.ap-graduate.tsukuba.ac.jp/course/chs/hum_first_all/",
+          "confidence": "medium",
+          "verify": true
+        }
+      },
+      "notes": "1. 本ページ(hum_first_all)は「令和8年度実施・令和9年(2027年)4月入学」の要項として公開済み。\n\n2. 【入試区分の構造】国際教育サブプログラムには「一般入学試験」「社会人特別選抜」「英語による特別選抜」の3種がある。英語による特別選抜は英語版サイト(eng.ap-graduate.tsukuba.ac.jp)に独立ページあり。本調査では一般入学試験・英語特別選抜の両方を対象とした。\n\n3. 【事前連絡の重要差異】一般入試：国際教育サブプログラムは明示的に例外として「不要」。英語特別選抜：「必要」（指導教員への事前連絡・同意が必須）。\n\n4. 【語学要件】一般入試は入試科目として「外国語（英語）100点、辞書使用不可」があるが、TOEFL・TOEIC・JLPT等の外部スコア提出要件は記載なし。英語特別選抜も外部スコア要件の明示なし。障害科学プログラムのみTOEIC/TOEFL/IELTSスコアを評価する旨の記載あり（国際教育は対象外）。\n\n5. 【令和9年度変更通知】2026年2月4日付で国際教育サブプログラムの「一般入学試験・社会人特別選抜に関する変更」がPDFで公開されているが(https://www.ap-graduate.tsukuba.ac.jp/wp-content/uploads/2026/02/国際サブ_添付書類_募集要項お知らせページに掲載…",
+      "_unresolved": [
+        "令和9年度変更通知PDF（国際教育サブプログラム一般入試・社会人特別選抜の変更内容）を人工確認：https://www.ap-graduate.tsukuba.ac.jp/wp-content/uploads/2026/02/国際サブ_添付書類_募集要項お知らせページに掲載する通知書.pdf — 全文確認し変更内容を把握のこと",
+        "英語特別選抜詳細PDF（Application Guidelines-English speakers）を人工確認：https://eng.ap-graduate.tsukuba.ac.jp/wp-content/pdf/chs/hum_first/Application%20Guidelines-English%20speakers.pdf — 語学スコア要件・推薦状要否の明記があるか確認のこと"
+      ]
+    },
+    {
+      "school": "神戸大学",
+      "school_type": "国立",
+      "graduate_school": "人間発達環境学研究科（人間発達専攻·教育系）",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "一般入試（外国籍可）",
+      "period_label": "一期",
+      "application_open": "2026-07-21",
+      "application_deadline": "2026-07-27",
+      "exam_date": "2026-09-10",
+      "result_date": "2026-10-02",
+      "lang_req": "英語試験スコア提出必須（TOEIC L&R/S&W・TOEIC-IP・TOEFL-PBT/iBT/ITP・IELTSアカデミック、2021年8月1日以降受験分、原本のみ）。JLPT/EJU要件の記載なし。",
+      "rec_letters": 0,
+      "research_plan": true,
+      "prior_contact": false,
+      "official_pdf_url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+      "source_page_url": "https://www.h.kobe-u.ac.jp/ja/admission_master",
+      "year_version": "令和9年度 / 2027年度（2027年4月入学）",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-07-21",
+          "quote": "令和８年７月21日(火)から令和８年７月27日(月)午後４時まで（必着）",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-07-27",
+          "quote": "令和８年７月21日(火)から令和８年７月27日(月)午後４時まで（必着）",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2026-09-10",
+          "quote": "令和８年９月10日(木)・11日(金)",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-10-02",
+          "quote": "令和８年10月２日(金）",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "英語試験スコア提出必須（TOEIC L&R/S&W・TOEIC-IP・TOEFL-PBT/iBT/ITP・IELTSアカデミック、2021年8月1日以降受験分、原本のみ）。JLPT/EJU要件の記載なし。",
+          "quote": "TOEIC公開テスト（TOEIC L&R又はS&W）, TOEIC-IP, TOEFL-PBT, TOEFL-iBT, TOEFL-ITP，IELTS（アカデミック・モジュール）のいずれかのスコアを証明する書類（コピーではなく原本に限る。）。2021年（令和３年）８月１日以降に受験したものを有効とします。",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": "不要（教育系には事前連絡の規定なし。注：人間環境学専攻の社会環境論のみ「事前に指導を希望する教員に対面やメールで連絡を取ることを推奨」との記載あり）",
+          "quote": "（注２） 受験区分「社会環境論」で受験する方は，事前に指導を希望する教員に対面やメールで連絡を取ることを推奨します。",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": "要",
+          "quote": "(6) 研究計画書（本研究科所定の用紙）当該受験区分への志望理由及び研究上の問題意識を明確に記入し，作成してください。",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": "不要",
+          "quote": "提出書類等: (1)入学願書・履歴書 (2)成績証明書および卒業(見込)証明書 (3)英語試験に関して成績を証明する書類 (4)受験票・整理票 (5)写真 (6)研究計画書 (7)表現系プレゼンテーション申請書（表現系のみ）(8)検定料 (9)住民票等（外国人留学生特別入試のみ）",
+          "url": "https://www.h.kobe-u.ac.jp/system/files/2026-05/admission_2027_master.pdf",
+          "confidence": "high",
+          "verify": true
+        }
+      },
+      "notes": "1. 当研究科の「一般入試」には外国籍（外国において学校教育16年の課程を修了した者等）が出願可能（出願資格①(3)等）。別に「外国人留学生特別入試」（日本国籍を有しない者向け）も存在するが、本調査は「一般入試（外国籍可）」を対象とした。2. 語学要件は「英語試験スコア提出必須」で、日本語能力（JLPT等）の独自要件記載なし。3. 口述試験は研究計画書に基づいて実施される（「志望する受験区分での今後の研究等について，各自の研究計画書に基づいて行います」）。4. 試験科目・教育系の筆記試験は教育哲学・教育史/教育行政・制度/教育方法学/教師教育学等14分野から1科目選択。5. 外国人留学生特別入試は「一般入試と同じ試験方法をとります」との記載あり（人間発達専攻）。6. 人間発達専攻の1年履修コースは別日程（出願2026-11-13〜11-17、試験2026-12-19・20、合格発表2027-01-19）。",
+      "_unresolved": []
+    },
+    {
+      "school": "広島大学",
+      "school_type": "国立",
+      "graduate_school": "人間社会科学研究科 教育学プログラム（令和9年4月改名:教育人文社会科学研究科）",
+      "major": null,
+      "field_tag": "教育系",
+      "degree": "修士",
+      "intake_term": "2027-04",
+      "admission_track": "9月入試 一般選抜（9月无留学生特別選抜）",
+      "period_label": "一期",
+      "application_open": "2026-07-22",
+      "application_deadline": "2026-07-29",
+      "exam_date": "2026-09-08",
+      "result_date": "2026-09-25",
+      "lang_req": "日本語非母語話者はJLPT・EJU日本語・BJTのいずれか1つ（2023年4月以降受験分）を出願時に提出必須。日本語母語話者は英語試験（英検/TOEFL-iBT/IELTS/TOEIC L&R）の提出は任意（加点評価）",
+      "rec_letters": 0,
+      "research_plan": true,
+      "prior_contact": null,
+      "official_pdf_url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+      "source_page_url": "https://www.hiroshima-u.ac.jp/gshs/m-sinnrikyouikunihonngonyuushi",
+      "year_version": "令和9年度（2027年度）/ 2027年4月入学",
+      "status": "已发布",
+      "last_verified": "2026-06-06",
+      "_ai_extracted": "2026-06-05",
+      "_ai_verify_year_track_ok": true,
+      "_evidence": {
+        "application_open": {
+          "raw": "2026-07-22",
+          "quote": "インターネット入力及び入学検定料の支払 令和８年７月２２日（水）～令和８年７月２９日（水）午後１時まで（必着）",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "application_deadline": {
+          "raw": "2026-07-29",
+          "quote": "インターネット入力及び入学検定料の支払 令和８年７月２２日（水）～令和８年７月２９日（水）午後１時まで（必着）",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "exam_date": {
+          "raw": "2026-09-08",
+          "quote": "９月８日（火）・９月９日（水）",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "result_date": {
+          "raw": "2026-09-25",
+          "quote": "令和８年９月２５日（金）１０時の予定 UCAROに合否の結果を掲載します。合格者には合格通知書を送付します。",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "lang_req": {
+          "raw": "日本語非母語話者はJLPT・EJU日本語・BJTのいずれか1つ（2023年4月以降受験分）を出願時に提出必須。日本語母語話者は英語試験（英検/TOEFL-iBT/IELTS/TOEIC L&R）の提出は任意（加点評価）",
+          "quote": "【日本語を母語（第一言語）としない者】（1）日本語能力試験（JLPT）（2）日本留学試験（日本語）（3）ビジネス日本語能力テスト（BJT） ／ 令和５（２０２３）年４月以降に受験した，以下語学民間試験のうち，いずれか一つのスコア証明書又は合格通知書の写しを提出してください。出願時にスコア証明書又は合格通知書を提出できない場合は，出願できません。",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "prior_contact": {
+          "raw": "望ましい（義務ではない）",
+          "quote": "心理学プログラム，教授学習科学プログラム及び教育学プログラムに出願を希望する者は，志望する研究分野の教員にあらかじめ相談しておくことが望ましいです。",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "research_plan": {
+          "raw": "要",
+          "quote": "研究計画書 研究科で行おうとする研究の内容及びその計画について，1,500字以内で記したもの。（参考文献や図等がある場合は，それらの記載を含めて1,500字以内とする。用紙は2ページ以内までとする。）",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        },
+        "rec_letters": {
+          "raw": "不要（一般選抜の場合）",
+          "quote": "推薦入学（教育科学専攻教授学習科学プログラム教授創成科学コース造形芸術教育学分野のみ）の入学志願者は，以上の書類に加えて，次に掲げる書類を提出してください。",
+          "url": "https://www.hiroshima-u.ac.jp/system/files/292412/April%202027%20Admission%20Application%20Guidebook_Entrance%20Examination%20in%20Septembe_20260602.pdf",
+          "confidence": "high",
+          "verify": true
+        }
+      },
+      "notes": "【重要】令和9年度の9月入試（教育学プログラム）に外国人留学生特別選抜は設定されていない。入試区分は「一般選抜・社会人特別選抜・推薦入学（造形芸術教育学分野のみ）」の3種のみ。外国人留学生も一般選抜での出願が対象となる。なお令和9(2027)年4月より当研究科は「教育人文社会科学研究科」に名称変更。語学民間試験は一般選抜・社会人特別選抜の双方で提出必須（日本語非母語話者の場合）。スコア証明書が出願期間に間に合わない場合のみオンライン画面の写しでの代替が認められる。また、出願書類として「これまでの研究概要(D)」（1,500字以内）と「研究計画書(E)」（1,500字以内）の両方提出が必要。事前連絡は教育学プログラムでは「望ましい」レベルであり義務ではないが、日本語教育学プログラムでは出願内諾書(Q)の提出が必須（教育学プログラムとは異なる）。推薦状は推薦入学（造形芸術教育学分野のみ）に限り必要であり、教育学プログラムの一般選抜では不要。",
+      "_unresolved": []
+    }
+  ]
+}
